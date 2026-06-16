@@ -1,0 +1,3166 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>پروپوزال بازطراحی پورتال شهرداری مشکین‌دشت</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #eef1ec;
+        --bg-accent: #f7f8f4;
+        --surface: #ffffff;
+        --surface-soft: #f4f6f2;
+        --surface-strong: #ecf1ea;
+        --surface-tint: #eff4ef;
+        --text: #15313a;
+        --muted: #55666d;
+        --muted-strong: #324951;
+        --navy: #173247;
+        --navy-soft: #24485f;
+        --green: #204e42;
+        --green-soft: #2e6656;
+        --green-deep: #173a32;
+        --gold: #c2a35f;
+        --gold-soft: #e8dcc0;
+        --border: #d5ddd5;
+        --border-strong: #bfcabe;
+        --shadow: 0 24px 58px rgba(17, 37, 43, 0.08);
+        --shadow-soft: 0 14px 30px rgba(17, 37, 43, 0.05);
+        --radius-xl: 34px;
+        --radius-lg: 28px;
+        --radius-md: 22px;
+        --radius-sm: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(194, 163, 95, 0.15),
+            transparent 21rem
+          ),
+          radial-gradient(
+            circle at left 18%,
+            rgba(23, 50, 71, 0.05),
+            transparent 24rem
+          ),
+          linear-gradient(
+            180deg,
+            var(--bg-accent) 0%,
+            var(--bg) 38%,
+            #e8ede6 100%
+          );
+        color: var(--text);
+        line-height: 2;
+      }
+
+      body[data-theme="dark"] {
+        --bg: #0f171c;
+        --bg-accent: #162027;
+        --surface: #18242b;
+        --surface-soft: #1d2b33;
+        --surface-strong: #22323b;
+        --surface-tint: #18262d;
+        --text: #edf3ef;
+        --muted: #b0bec1;
+        --muted-strong: #d7e1de;
+        --navy: #e6efec;
+        --navy-soft: #c5d1ce;
+        --green: #8fb6a4;
+        --green-soft: #7da493;
+        --green-deep: #6d9383;
+        --gold: #cfb57c;
+        --gold-soft: rgba(207, 181, 124, 0.22);
+        --border: #2b3941;
+        --border-strong: #3a4b54;
+        --shadow: 0 24px 58px rgba(0, 0, 0, 0.28);
+        --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.18);
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(207, 181, 124, 0.11),
+            transparent 22rem
+          ),
+          radial-gradient(
+            circle at left 18%,
+            rgba(143, 182, 164, 0.08),
+            transparent 24rem
+          ),
+          linear-gradient(180deg, #111b21 0%, #0f171c 42%, #0d1419 100%);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        width: min(1320px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 14px;
+        z-index: 20;
+        width: min(96vw, 1380px);
+        margin: 0 auto;
+        backdrop-filter: blur(16px);
+        background: rgba(247, 248, 244, 0.82);
+        border: 1px solid rgba(191, 202, 190, 0.88);
+        border-radius: 24px;
+        box-shadow: 0 16px 32px rgba(23, 50, 71, 0.08);
+      }
+
+      .nav-in {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 12px 22px;
+      }
+
+      .logo {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        min-width: 0;
+        color: var(--navy);
+        flex: 1 1 34%;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        background: linear-gradient(
+          180deg,
+          rgba(32, 78, 66, 0.96),
+          rgba(23, 50, 71, 0.96)
+        );
+        color: #fff;
+        box-shadow: 0 12px 22px rgba(23, 50, 71, 0.14);
+      }
+
+      .brand-mark i[data-lucide] {
+        width: 20px;
+        height: 20px;
+      }
+
+      .brand-copy {
+        min-width: 0;
+      }
+
+      .brand-title {
+        margin: 0;
+        color: var(--navy);
+        font-size: 0.96rem;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .brand-subtitle {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .nav-center {
+        display: none;
+      }
+
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 52px;
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid rgba(213, 221, 213, 0.84);
+        color: var(--navy);
+        font-size: 0.92rem;
+        font-weight: 800;
+        line-height: 1.6;
+        transition:
+          background 0.18s ease,
+          color 0.18s ease,
+          transform 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .nav-links a i[data-lucide] {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        color: var(--green);
+      }
+
+      .nav-links a:hover {
+        background: rgba(32, 78, 66, 0.06);
+        color: var(--navy);
+        border-color: rgba(194, 163, 95, 0.34);
+        transform: translateY(-1px);
+      }
+
+      .nav-cta {
+        min-height: 46px;
+        padding: 10px 16px;
+        font-size: 0.88rem;
+        font-weight: 800;
+        box-shadow: 0 10px 22px rgba(23, 50, 71, 0.08);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex: 0 0 auto;
+        margin-inline-start: auto;
+      }
+
+      .theme-toggle {
+        width: 100%;
+        min-height: 46px;
+        padding: 10px 14px;
+        border-radius: 16px;
+        border: 1px solid rgba(191, 202, 190, 0.95);
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--navy);
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        font-size: 0.86rem;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(23, 50, 71, 0.05);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease,
+          color 0.18s ease;
+      }
+
+      .theme-toggle:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 26px rgba(23, 50, 71, 0.08);
+      }
+
+      .theme-toggle i[data-lucide] {
+        width: 16px;
+        height: 16px;
+      }
+
+      .nav-menu-btn {
+        display: inline-flex;
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px;
+        border-radius: 16px;
+        border: 1px solid rgba(191, 202, 190, 0.95);
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--navy);
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(23, 50, 71, 0.05);
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .nav-menu-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 26px rgba(23, 50, 71, 0.08);
+      }
+
+      .nav-menu-btn i[data-lucide] {
+        width: 18px;
+        height: 18px;
+      }
+
+      .nav-mobile-panel {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        display: block;
+        padding-top: 2px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          visibility 0.2s ease;
+      }
+
+      .nav-mobile-panel.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .nav-mobile-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+        gap: 18px;
+        padding: 18px;
+        border-radius: 26px;
+        background: rgba(247, 248, 244, 0.94);
+        border: 1px solid rgba(191, 202, 190, 0.88);
+        box-shadow: 0 24px 48px rgba(23, 50, 71, 0.12);
+        max-height: min(76vh, 760px);
+        overflow: auto;
+      }
+
+      .nav-menu-main,
+      .nav-mobile-actions {
+        display: grid;
+        gap: 12px;
+      }
+
+      .nav-menu-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .nav-menu-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .nav-menu-label i[data-lucide] {
+        width: 15px;
+        height: 15px;
+      }
+
+      .nav-menu-close {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        border: 1px solid rgba(191, 202, 190, 0.95);
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--navy);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(23, 50, 71, 0.05);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .nav-menu-close:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 26px rgba(23, 50, 71, 0.08);
+      }
+
+      .nav-menu-close i[data-lucide] {
+        width: 17px;
+        height: 17px;
+      }
+
+      .nav-menu-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.9;
+      }
+
+      .nav-mobile-actions {
+        align-content: start;
+      }
+
+      .nav-mobile-actions .btn,
+      .nav-mobile-actions .theme-toggle {
+        width: 100%;
+      }
+
+      .nav-action-stack {
+        display: grid;
+        gap: 10px;
+      }
+
+      .nav-action-secondary {
+        background: #fff;
+        color: var(--green);
+        border-color: var(--border-strong);
+        box-shadow: none;
+      }
+
+      .nav-action-secondary:hover {
+        box-shadow: none;
+        background: rgba(32, 78, 66, 0.04);
+      }
+
+      .nav-menu-note {
+        margin: 0;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(213, 221, 213, 0.82);
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.9;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+        border: 1px solid var(--green);
+        background: linear-gradient(180deg, var(--green-soft), var(--green));
+        color: #fff;
+        border-radius: 999px;
+        padding: 12px 22px;
+        font-weight: 800;
+        box-shadow: 0 14px 28px rgba(32, 78, 66, 0.15);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 30px rgba(32, 78, 66, 0.18);
+      }
+
+      .btn i[data-lucide] {
+        width: 18px;
+        height: 18px;
+        stroke-width: 2;
+      }
+
+      .hero-actions .btn:last-child {
+        background: #fff;
+        color: var(--green);
+        border-color: var(--border-strong);
+        box-shadow: none;
+      }
+
+      .hero-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .hero-strip-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(213, 221, 213, 0.88);
+        color: var(--navy-soft);
+        font-size: 0.83rem;
+        font-weight: 800;
+        line-height: 1.6;
+        box-shadow: 0 10px 22px rgba(23, 50, 71, 0.04);
+      }
+
+      .hero-strip-item i[data-lucide] {
+        width: 16px;
+        height: 16px;
+        color: var(--green);
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        padding: 48px 0 68px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.18fr) minmax(330px, 0.82fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .hero-copy {
+        position: relative;
+        padding: 36px 38px 38px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.82) 0%,
+          rgba(247, 249, 245, 0.94) 100%
+        );
+        border: 1px solid rgba(213, 221, 213, 0.88);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+      }
+
+      .hero-copy:before {
+        content: "";
+        position: absolute;
+        inset: -24px auto auto -18px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(194, 163, 95, 0.14),
+          transparent 72%
+        );
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(32, 78, 66, 0.08);
+        border: 1px solid rgba(32, 78, 66, 0.14);
+        color: var(--green);
+        font-weight: 800;
+        font-size: 13px;
+      }
+
+      .eyebrow i[data-lucide] {
+        width: 16px;
+        height: 16px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.45rem, 2.8vw, 2.35rem);
+        line-height: 1.62;
+        margin: 18px 0 18px;
+        letter-spacing: -0.03em;
+        color: var(--navy);
+      }
+
+      .grad {
+        color: var(--green);
+      }
+
+      .lead {
+        font-size: 1rem;
+        color: var(--muted-strong);
+        max-width: 44rem;
+        margin: 0;
+        line-height: 2.15;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .glass,
+      .card,
+      .step,
+      .cta {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(213, 221, 213, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      .glass {
+        border-radius: var(--radius-xl);
+      }
+
+      .audit {
+        position: relative;
+        overflow: hidden;
+        padding: 30px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(240, 244, 239, 0.96) 100%
+        );
+      }
+
+      .audit:before {
+        content: "";
+        position: absolute;
+        inset: auto -52px -72px auto;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(194, 163, 95, 0.2),
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+
+      .audit h3,
+      .card h3,
+      .step h3 {
+        margin: 0 0 10px;
+        color: var(--navy);
+      }
+
+      .audit h3 {
+        font-size: 1.15rem;
+        margin-bottom: 18px;
+      }
+
+      .audit-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .audit-title i[data-lucide] {
+        width: 20px;
+        height: 20px;
+        color: var(--green);
+      }
+
+      .score {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .audit .score {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .chip {
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: linear-gradient(
+          180deg,
+          var(--surface) 0%,
+          var(--surface-soft) 100%
+        );
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
+      }
+
+      .audit .chip {
+        width: 100%;
+        padding: 20px 20px 18px;
+      }
+
+      .chip-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 6px;
+      }
+
+      .chip-icon {
+        flex: 0 0 auto;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(32, 78, 66, 0.08);
+        color: var(--green);
+      }
+
+      .chip-icon i[data-lucide] {
+        width: 18px;
+        height: 18px;
+      }
+
+      .chip b {
+        display: block;
+        font-size: 1.08rem;
+        color: var(--green);
+        margin-bottom: 6px;
+        line-height: 1.7;
+      }
+
+      .chip span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.9;
+      }
+
+      .audit .chip span {
+        line-height: 2;
+      }
+
+      .section {
+        position: relative;
+        padding: 56px 0;
+      }
+
+      .section + .section:before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        right: 0;
+        width: 180px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-soft), transparent);
+      }
+
+      .section-shell {
+        position: relative;
+        padding: 34px;
+        border-radius: calc(var(--radius-xl) + 2px);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.5) 0%,
+          rgba(244, 246, 242, 0.68) 100%
+        );
+        border: 1px solid rgba(213, 221, 213, 0.72);
+      }
+
+      .section-shell.compact {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 28px;
+      }
+
+      .section-head > div {
+        min-width: 0;
+      }
+
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        margin-bottom: 12px;
+        border-radius: 999px;
+        background: rgba(23, 50, 71, 0.05);
+        border: 1px solid rgba(23, 50, 71, 0.08);
+        color: var(--navy-soft);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .section-kicker:before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--gold);
+        box-shadow: 0 0 0 5px rgba(194, 163, 95, 0.14);
+      }
+
+      .section h2 {
+        font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+        margin: 0 0 12px;
+        color: var(--navy);
+        line-height: 1.52;
+      }
+
+      .sub {
+        color: var(--muted);
+        margin: 0;
+        max-width: 52rem;
+        line-height: 2.05;
+      }
+
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        min-height: 100%;
+        padding: 26px;
+        border-radius: var(--radius-lg);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .card:hover,
+      .step:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 24px 48px rgba(17, 37, 43, 0.1);
+        border-color: rgba(191, 202, 190, 1);
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 2.02;
+        font-size: 0.98rem;
+      }
+
+      .icon {
+        position: relative;
+        width: 54px;
+        height: 54px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, rgba(236, 241, 234, 0.96), #fff);
+        border: 1px solid var(--border);
+        color: var(--navy);
+        font-weight: 900;
+        margin-bottom: 18px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+      }
+
+      .icon i[data-lucide] {
+        width: 22px;
+        height: 22px;
+      }
+
+      .icon-number {
+        position: absolute;
+        bottom: -6px;
+        left: -6px;
+        min-width: 22px;
+        height: 22px;
+        padding: 0 5px;
+        border-radius: 999px;
+        background: var(--navy);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 0.7rem;
+        font-weight: 800;
+        box-shadow: 0 6px 12px rgba(23, 50, 71, 0.18);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 800;
+        background: #f8f3e8;
+        color: #866831;
+        border: 1px solid #e8dcc0;
+        margin-bottom: 16px;
+      }
+
+      .pill i[data-lucide] {
+        width: 14px;
+        height: 14px;
+      }
+
+      .strategy-grid .card,
+      .ai-grid .card,
+      .deliverables .card,
+      .service-hubs .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.97) 0%,
+          rgba(245, 247, 243, 0.96) 100%
+        );
+      }
+
+      .service-hubs .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .service-hubs .card p {
+        margin-bottom: 0;
+      }
+
+      .hub-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 18px;
+      }
+
+      .hub-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 11px;
+        border-radius: 999px;
+        background: rgba(23, 50, 71, 0.05);
+        border: 1px solid rgba(213, 221, 213, 0.92);
+        color: var(--navy-soft);
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 1.6;
+      }
+
+      .hub-chip i[data-lucide] {
+        width: 14px;
+        height: 14px;
+      }
+
+      .special-services {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .special-services:before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(194, 163, 95, 0.72),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .special-services .section-head {
+        margin-bottom: 30px;
+      }
+
+      .special-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .special-card {
+        position: relative;
+        padding: 28px;
+        border-radius: 28px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.985) 0%,
+          rgba(244, 247, 242, 0.97) 100%
+        );
+        border: 1px solid rgba(207, 216, 206, 0.96);
+        box-shadow: 0 22px 42px rgba(23, 50, 71, 0.08);
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .special-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 28px 48px rgba(23, 50, 71, 0.11);
+        border-color: rgba(194, 163, 95, 0.36);
+      }
+
+      .special-card:after {
+        content: "";
+        position: absolute;
+        inset: auto 28px 0 28px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          rgba(32, 78, 66, 0.32),
+          rgba(194, 163, 95, 0.72)
+        );
+      }
+
+      .special-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 16px;
+      }
+
+      .special-top .icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        flex: 0 0 auto;
+      }
+
+      .special-top .icon i[data-lucide] {
+        width: 25px;
+        height: 25px;
+      }
+
+      .special-card h3 {
+        margin-bottom: 0;
+        font-size: 1.18rem;
+        line-height: 1.8;
+      }
+
+      .special-card p {
+        margin-bottom: 18px;
+      }
+
+      .special-highlights {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .special-highlights li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid rgba(213, 221, 213, 0.82);
+        color: var(--muted-strong);
+        font-size: 0.91rem;
+        line-height: 1.78;
+        font-weight: 700;
+      }
+
+      .special-highlights li i[data-lucide] {
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        flex: 0 0 auto;
+        color: var(--green);
+      }
+
+      .difference-grid,
+      .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .difference-grid .card,
+      .scenario-grid .card {
+        min-height: 100%;
+      }
+
+      .scenario-card {
+        position: relative;
+      }
+
+      .scenario-card:before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        border-radius: 999px;
+        background: linear-gradient(
+          180deg,
+          rgba(32, 78, 66, 0.8),
+          rgba(194, 163, 95, 0.72)
+        );
+      }
+
+      .outcome-panel {
+        position: relative;
+        overflow: hidden;
+        padding: 30px;
+        border-radius: 30px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.985) 0%,
+          rgba(243, 246, 241, 0.97) 100%
+        );
+        border: 1px solid rgba(207, 216, 206, 0.96);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .outcome-panel:before {
+        content: "";
+        position: absolute;
+        inset: -36px auto auto -24px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(194, 163, 95, 0.14),
+          transparent 72%
+        );
+        pointer-events: none;
+      }
+
+      .outcome-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .outcome-grid li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.68);
+        border: 1px solid rgba(213, 221, 213, 0.84);
+        color: var(--muted-strong);
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.9;
+      }
+
+      .outcome-grid li i[data-lucide] {
+        width: 18px;
+        height: 18px;
+        margin-top: 2px;
+        flex: 0 0 auto;
+        color: var(--green);
+      }
+
+      .tier {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .tier:before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          rgba(194, 163, 95, 0.18),
+          rgba(32, 78, 66, 0.32)
+        );
+      }
+
+      .tier .pill {
+        margin-bottom: 18px;
+      }
+
+      .popular {
+        border-color: rgba(32, 78, 66, 0.42);
+        box-shadow:
+          0 0 0 4px rgba(194, 163, 95, 0.12),
+          0 28px 60px rgba(17, 37, 43, 0.12);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.99) 0%,
+          rgba(240, 244, 239, 1) 100%
+        );
+      }
+
+      .popular:after {
+        content: "پیشنهاد اصلی";
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(32, 78, 66, 0.92);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+        box-shadow: 0 10px 20px rgba(32, 78, 66, 0.18);
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 900;
+        margin: 12px 0 6px;
+        color: var(--green);
+        line-height: 1.55;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(213, 221, 213, 0.92);
+      }
+
+      .price small {
+        display: block;
+        font-size: 0.88rem;
+        color: var(--muted);
+        font-weight: 600;
+        margin-top: 4px;
+      }
+
+      .list {
+        padding: 0;
+        margin: 20px 0 0;
+        list-style: none;
+      }
+
+      .list li {
+        padding: 12px 0;
+        border-bottom: 1px dashed #d8e0d5;
+        color: var(--muted-strong);
+        line-height: 1.95;
+      }
+
+      .list li:last-child {
+        border-bottom: none;
+      }
+
+      .list li:before {
+        content: "✓";
+        color: var(--green);
+        font-weight: 900;
+        margin-left: 8px;
+      }
+
+      .note {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid rgba(213, 221, 213, 0.75);
+      }
+
+      .road {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        counter-reset: step;
+      }
+
+      .step {
+        position: relative;
+        padding: 24px;
+        border-radius: 24px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(244, 246, 242, 0.98) 100%
+        );
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .step-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 14px;
+        background: rgba(23, 50, 71, 0.07);
+        color: var(--navy);
+      }
+
+      .step-icon i[data-lucide] {
+        width: 22px;
+        height: 22px;
+      }
+
+      .step:before {
+        counter-increment: step;
+        content: counter(step);
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, var(--navy-soft), var(--navy));
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        margin-bottom: 14px;
+        box-shadow: 0 8px 18px rgba(23, 50, 71, 0.18);
+      }
+
+      .step:after {
+        content: "";
+        position: absolute;
+        inset: auto 24px 0 24px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          rgba(32, 78, 66, 0.3),
+          rgba(194, 163, 95, 0.65)
+        );
+      }
+
+      .cta {
+        position: relative;
+        overflow: hidden;
+        padding: 32px;
+        border-radius: 32px;
+        background: linear-gradient(180deg, #f8faf6 0%, #eef3ec 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-right: 6px solid var(--gold);
+      }
+
+      .cta:before {
+        content: "";
+        position: absolute;
+        left: -42px;
+        top: -32px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(194, 163, 95, 0.17),
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+
+      .proposal-cta .btn {
+        min-width: 210px;
+      }
+
+      .pricing-grid {
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .pricing-grid .tier {
+        min-height: 100%;
+        padding-top: 24px;
+      }
+
+      .pricing-grid .card h3 {
+        font-size: 1.18rem;
+        line-height: 1.72;
+      }
+
+      .pricing-top {
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid rgba(213, 221, 213, 0.92);
+      }
+
+      .pricing-top h3 {
+        margin-bottom: 0;
+      }
+
+      .pricing-meta {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0 18px;
+      }
+
+      .price {
+        font-size: 1.95rem;
+        font-weight: 900;
+        margin: 0;
+        color: var(--green);
+        line-height: 1.45;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .price,
+      .timeline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .price i[data-lucide],
+      .timeline i[data-lucide] {
+        width: 17px;
+        height: 17px;
+      }
+
+      .timeline {
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(23, 50, 71, 0.06);
+        border: 1px solid rgba(23, 50, 71, 0.09);
+        color: var(--navy-soft);
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .timeline:before {
+        display: none;
+      }
+
+      .pricing-highlights {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .pricing-highlights li {
+        position: relative;
+        padding-right: 15px;
+        color: var(--muted-strong);
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        font-size: 0.89rem;
+        line-height: 1.68;
+        letter-spacing: -0.01em;
+      }
+
+      .pricing-highlights li:before {
+        content: "";
+        position: absolute;
+        top: 0.78em;
+        right: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--green);
+        box-shadow: 0 0 0 3px rgba(32, 78, 66, 0.09);
+      }
+
+      .pricing-note {
+        position: relative;
+        padding: 14px 16px 14px 18px;
+        border-radius: 18px;
+        background: linear-gradient(
+          180deg,
+          rgba(240, 244, 239, 0.92) 0%,
+          rgba(255, 255, 255, 0.86) 100%
+        );
+        border: 1px solid rgba(213, 221, 213, 0.92);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        font-size: 0.87rem;
+        color: var(--muted-strong);
+        margin-top: 16px;
+        line-height: 1.88;
+      }
+
+      .pricing-note:before {
+        content: "";
+        position: absolute;
+        inset: 10px auto 10px 10px;
+        width: 3px;
+        border-radius: 999px;
+        background: linear-gradient(
+          180deg,
+          rgba(194, 163, 95, 0.95),
+          rgba(32, 78, 66, 0.55)
+        );
+      }
+
+      .pricing-note p {
+        margin: 0;
+      }
+
+      .pricing-actions {
+        margin-top: auto;
+        padding-top: 16px;
+      }
+
+      .details-btn {
+        width: 100%;
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        font-size: 0.94rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        padding: 11px 18px;
+        background: #fff;
+        color: var(--green);
+        border-color: var(--border-strong);
+        box-shadow: none;
+      }
+
+      .details-btn:hover {
+        background: rgba(32, 78, 66, 0.04);
+        box-shadow: none;
+      }
+
+      .pricing-detail-template {
+        display: none;
+      }
+
+      .deliverable-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 14px;
+        background: rgba(23, 50, 71, 0.06);
+        color: var(--navy);
+        border: 1px solid rgba(213, 221, 213, 0.92);
+      }
+
+      .deliverable-icon i[data-lucide] {
+        width: 22px;
+        height: 22px;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(21, 49, 58, 0.42);
+        backdrop-filter: blur(6px);
+      }
+
+      .modal-overlay.is-open {
+        display: flex;
+      }
+
+      .modal {
+        width: min(760px, 100%);
+        max-height: min(88vh, 920px);
+        overflow: auto;
+        border-radius: 30px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.99) 0%,
+          rgba(244, 246, 242, 0.98) 100%
+        );
+        border: 1px solid rgba(213, 221, 213, 0.96);
+        box-shadow: 0 30px 70px rgba(17, 37, 43, 0.16);
+      }
+
+      .modal-head {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 24px 26px 18px;
+        background: rgba(247, 248, 244, 0.96);
+        border-bottom: 1px solid rgba(213, 221, 213, 0.92);
+      }
+
+      .modal-head h3 {
+        margin: 8px 0 0;
+        color: var(--navy);
+        font-size: 1.35rem;
+        line-height: 1.7;
+      }
+
+      .modal-close {
+        flex: 0 0 auto;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #fff;
+        color: var(--navy);
+        font: inherit;
+        font-size: 1.15rem;
+        cursor: pointer;
+      }
+
+      .modal-body {
+        padding: 24px 26px 28px;
+      }
+
+      .modal-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .modal-price {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--green);
+      }
+
+      .modal-body .list {
+        margin-top: 0;
+      }
+
+      .modal-note {
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(213, 221, 213, 0.75);
+        color: var(--muted);
+        line-height: 2;
+      }
+
+      body[data-theme="dark"] .nav {
+        background: rgba(20, 29, 35, 0.82);
+        border-color: rgba(58, 75, 84, 0.88);
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26);
+      }
+
+      body[data-theme="dark"] .brand-mark {
+        background: linear-gradient(
+          180deg,
+          rgba(125, 164, 147, 0.96),
+          rgba(49, 70, 79, 0.96)
+        );
+        color: #0f171c;
+      }
+
+      body[data-theme="dark"] .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      body[data-theme="dark"] .theme-toggle {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.95);
+        color: var(--text);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+      }
+
+      body[data-theme="dark"] .nav-menu-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.95);
+        color: var(--text);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+      }
+
+      body[data-theme="dark"] .nav-mobile-inner {
+        background: rgba(20, 29, 35, 0.96);
+        border-color: rgba(58, 75, 84, 0.92);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+      }
+
+      body[data-theme="dark"] .nav-links a,
+      body[data-theme="dark"] .nav-menu-close,
+      body[data-theme="dark"] .nav-menu-note {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.92);
+        color: var(--text);
+      }
+
+      body[data-theme="dark"] .nav-menu-label,
+      body[data-theme="dark"] .nav-menu-copy {
+        color: var(--muted);
+      }
+
+      body[data-theme="dark"] .glass,
+      body[data-theme="dark"] .card,
+      body[data-theme="dark"] .step,
+      body[data-theme="dark"] .cta,
+      body[data-theme="dark"] .hero-copy,
+      body[data-theme="dark"] .section-shell,
+      body[data-theme="dark"] .modal {
+        background: linear-gradient(
+          180deg,
+          rgba(24, 36, 43, 0.96) 0%,
+          rgba(29, 43, 51, 0.94) 100%
+        );
+        border-color: rgba(58, 75, 84, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      body[data-theme="dark"] .chip,
+      body[data-theme="dark"] .pricing-note {
+        background: linear-gradient(
+          180deg,
+          rgba(31, 46, 54, 0.98) 0%,
+          rgba(24, 36, 43, 0.98) 100%
+        );
+        border-color: rgba(58, 75, 84, 0.94);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+
+      body[data-theme="dark"] .icon,
+      body[data-theme="dark"] .deliverable-icon,
+      body[data-theme="dark"] .step-icon,
+      body[data-theme="dark"] .chip-icon {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.92);
+        color: var(--green);
+        box-shadow: none;
+      }
+
+      body[data-theme="dark"] .timeline,
+      body[data-theme="dark"] .section-kicker,
+      body[data-theme="dark"] .eyebrow {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.88);
+        color: var(--text);
+      }
+
+      body[data-theme="dark"] .pill {
+        background: rgba(207, 181, 124, 0.08);
+        border-color: rgba(207, 181, 124, 0.2);
+        color: #e6d5ad;
+      }
+
+      body[data-theme="dark"] .hub-chip {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.92);
+        color: var(--text);
+      }
+
+      body[data-theme="dark"] .hero-strip-item {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.92);
+        color: var(--text);
+        box-shadow: none;
+      }
+
+      body[data-theme="dark"] .special-card {
+        background: linear-gradient(
+          180deg,
+          rgba(24, 36, 43, 0.98) 0%,
+          rgba(29, 43, 51, 0.96) 100%
+        );
+        border-color: rgba(58, 75, 84, 0.94);
+        box-shadow: 0 24px 44px rgba(0, 0, 0, 0.22);
+      }
+
+      body[data-theme="dark"] .special-card:hover {
+        border-color: rgba(207, 181, 124, 0.26);
+        box-shadow: 0 28px 48px rgba(0, 0, 0, 0.28);
+      }
+
+      body[data-theme="dark"] .special-highlights li {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.9);
+        color: var(--text);
+      }
+
+      body[data-theme="dark"] .outcome-panel {
+        background: linear-gradient(
+          180deg,
+          rgba(24, 36, 43, 0.98) 0%,
+          rgba(29, 43, 51, 0.96) 100%
+        );
+        border-color: rgba(58, 75, 84, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      body[data-theme="dark"] .outcome-grid li {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.9);
+        color: var(--text);
+      }
+
+      body[data-theme="dark"] .hero-actions .btn:last-child,
+      body[data-theme="dark"] .details-btn {
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        border-color: rgba(58, 75, 84, 0.94);
+      }
+
+      body[data-theme="dark"] .modal-head {
+        background: rgba(20, 29, 35, 0.96);
+        border-bottom-color: rgba(58, 75, 84, 0.9);
+      }
+
+      body[data-theme="dark"] .modal-close {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(58, 75, 84, 0.92);
+        color: var(--text);
+      }
+
+      body[data-theme="dark"] .list li,
+      body[data-theme="dark"] .pricing-actions,
+      body[data-theme="dark"] .pricing-top,
+      body[data-theme="dark"] .modal-note {
+        border-color: rgba(58, 75, 84, 0.84);
+      }
+
+      .footer {
+        padding: 34px 0 60px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .mini {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.95;
+      }
+
+      @media (max-width: 1100px) {
+        .nav {
+          width: min(97vw, 1380px);
+        }
+
+        .brand-subtitle {
+          display: none;
+        }
+
+        .nav-mobile-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .grid3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .special-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .difference-grid,
+        .scenario-grid,
+        .outcome-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .road {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 980px) {
+        .nav-mobile-links {
+          grid-template-columns: 1fr;
+        }
+
+        .theme-toggle-text {
+          display: inline;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .wrap {
+          width: min(100% - 28px, 720px);
+        }
+
+        .nav-in {
+          gap: 12px;
+          padding: 10px 12px;
+        }
+
+        .nav {
+          top: 10px;
+          width: min(100% - 20px, 760px);
+        }
+
+        .logo {
+          gap: 10px;
+          flex: 1 1 auto;
+        }
+
+        .brand-title {
+          font-size: 0.88rem;
+        }
+
+        .brand-subtitle {
+          font-size: 0.7rem;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+        }
+
+        .nav-mobile-panel {
+          top: calc(100% + 10px);
+        }
+
+        .nav-mobile-inner {
+          padding: 14px;
+          border-radius: 22px;
+        }
+
+        .nav-links a {
+          min-height: 48px;
+          font-size: 0.88rem;
+        }
+
+        .theme-toggle,
+        .nav-cta {
+          min-height: 44px;
+          font-size: 0.84rem;
+        }
+
+        .hero {
+          padding: 34px 0 36px;
+        }
+
+        .hero-copy {
+          padding: 24px 20px 24px;
+        }
+
+        .hero h1 {
+          font-size: clamp(1.8rem, 8.2vw, 2.55rem);
+          line-height: 1.58;
+        }
+
+        .lead {
+          font-size: 1rem;
+        }
+
+        .hero-actions,
+        .cta {
+          display: grid;
+        }
+
+        .hero-strip {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .grid3,
+        .grid2,
+        .road,
+        .score {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 34px 0;
+        }
+
+        .section-shell {
+          padding: 24px 18px;
+        }
+
+        .section-head {
+          display: block;
+          margin-bottom: 22px;
+        }
+
+        .card,
+        .step,
+        .audit,
+        .cta {
+          padding: 20px;
+        }
+
+        .special-card {
+          padding: 22px 20px;
+        }
+
+        .outcome-panel {
+          padding: 22px 20px;
+        }
+
+        .special-top {
+          gap: 14px;
+        }
+
+        .price {
+          font-size: 1.7rem;
+        }
+
+        .modal-overlay {
+          padding: 12px;
+        }
+
+        .modal {
+          max-height: 90vh;
+          border-radius: 24px;
+        }
+
+        .modal-head,
+        .modal-body {
+          padding-right: 18px;
+          padding-left: 18px;
+        }
+
+        .popular:after {
+          top: 16px;
+          left: 16px;
+        }
+
+        .proposal-cta .btn,
+        .hero-actions .btn {
+          min-width: 0;
+          width: 100%;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          color: #111;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .glass,
+        .card,
+        .step,
+        .cta,
+        .hero-copy,
+        .section-shell {
+          box-shadow: none;
+          background: #fff;
+          color: #111;
+          border: 1px solid #ddd;
+        }
+
+        .lead,
+        .sub,
+        .card p,
+        .mini,
+        .note,
+        .chip span,
+        .footer {
+          color: #444;
+        }
+
+        .grad {
+          color: #111;
+        }
+
+        .section {
+          break-inside: avoid;
+        }
+
+        .section + .section:before,
+        .section-kicker:before,
+        .cta:before,
+        .hero-copy:before,
+        .audit:before,
+        .step:after,
+        .tier:before,
+        .popular:after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <div class="nav">
+      <div class="wrap nav-in">
+        <div class="logo">
+          <div class="brand-mark"><i data-lucide="building-2"></i></div>
+          <div class="brand-copy">
+            <p class="brand-title">
+              طرح نوسازی خدمات الکترونیکی شهرداری مشکین‌دشت
+            </p>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="nav-menu-btn"
+            type="button"
+            id="nav-menu-toggle"
+            aria-label="باز کردن منو"
+            aria-expanded="false"
+            aria-controls="nav-mobile-panel"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+      <div class="nav-mobile-panel" id="nav-mobile-panel" aria-hidden="true">
+        <div class="nav-mobile-inner">
+          <div class="nav-menu-main">
+            <div class="nav-menu-head">
+              <p class="nav-menu-label">
+                <i data-lucide="layout-grid"></i>بخش‌های پروپوزال
+              </p>
+              <button
+                class="nav-menu-close"
+                type="button"
+                id="nav-menu-close"
+                aria-label="بستن منو"
+              >
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+            <p class="nav-menu-copy">
+              دسترسی سریع به بخش‌های کلیدی پروپوزال و اقدام‌های اجرایی در یک
+              منوی یکپارچه.
+            </p>
+            <div class="nav-links nav-mobile-links">
+              <a href="#top"><i data-lucide="house"></i>شروع پروپوزال</a>
+              <a href="#strategy"><i data-lucide="shield"></i>راهبرد اجرایی</a>
+              <a href="#smart-service"
+                ><i data-lucide="building"></i>میز خدمت هوشمند</a
+              >
+              <a href="#ai"><i data-lucide="sparkles"></i>قابلیت‌های هوشمند</a>
+              <a href="#difference"
+                ><i data-lucide="layout-panel-top"></i>تفاوت طرح</a
+              >
+              <a href="#outcomes"
+                ><i data-lucide="target"></i>نتیجه مورد انتظار</a
+              >
+              <a href="#levels"><i data-lucide="layers-3"></i>سطوح همکاری</a>
+              <a href="#deliverables"
+                ><i data-lucide="package"></i>خروجی‌های تحویل</a
+              >
+              <a href="#roadmap"><i data-lucide="map-fold"></i>نقشه راه اجرا</a>
+              <a href="#final-proposal"
+                ><i data-lucide="flag"></i>پیشنهاد نهایی</a
+              >
+            </div>
+          </div>
+          <div class="nav-mobile-actions">
+            <p class="nav-menu-label"><i data-lucide="sparkles"></i>اقدامات</p>
+            <div class="nav-action-stack">
+              <a class="btn nav-cta menu-close-on-click" href="#levels"
+                ><i data-lucide="layers-3"></i>مشاهده سطح اجرا</a
+              >
+              <a
+                class="btn nav-cta nav-action-secondary menu-close-on-click"
+                href="javascript:window.print()"
+                ><i data-lucide="printer"></i>دانلود / چاپ PDF</a
+              >
+              <button
+                class="theme-toggle"
+                type="button"
+                id="theme-toggle"
+                aria-label="تغییر حالت نمایش"
+              >
+                <i data-lucide="moon"></i>
+                <span class="theme-toggle-text" id="theme-toggle-text"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="wrap">
+      <section id="top" class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow"
+              ><i data-lucide="shield-check"></i>راهکاری مرحله‌ای برای افزایش
+              اعتبار دیجیتال شهرداری، بدون توقف سامانه فعلی</span
+            >
+            <h1>
+              تبدیل سایت فعلی شهرداری مشکین‌دشت به یک
+              <span class="grad"
+                >مرکز خدمات آنلاین، اطلاع‌رسانی و تعامل شهروندی</span
+              >
+            </h1>
+            <p class="lead">
+              هدف این طرح، تبدیل سایت شهرداری مشکین‌دشت به یک ابزار مؤثر برای
+              مدیریت ارتباط با شهروندان است؛ بستری سریع، منظم و قابل اعتماد که
+              هم تصویر حرفه‌ای شهرداری را تقویت می‌کند، هم دسترسی مردم به خدمات،
+              اطلاعیه‌ها و پیگیری‌ها را ساده‌تر و هوشمندتر می‌سازد.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#levels"
+                ><i data-lucide="layers-3"></i>مشاهده سطح‌های همکاری</a
+              >
+              <a class="btn" href="#ai"
+                ><i data-lucide="sparkles"></i>ایده‌های هوش مصنوعی</a
+              >
+            </div>
+            <!-- <div class="hero-strip" aria-label="خلاصه ارزش پیشنهادی">
+              <span class="hero-strip-item"
+                ><i data-lucide="shield"></i>نوسازی بدون توقف خدمات</span
+              >
+              <span class="hero-strip-item"
+                ><i data-lucide="building"></i>تمرکز بر شهرسازی و خدمات شهری</span
+              >
+              <span class="hero-strip-item"
+                ><i data-lucide="brain-circuit"></i>قابل توسعه با هوش مصنوعی</span
+              >
+              <span class="hero-strip-item"
+                ><i data-lucide="badge-check"></i>مناسب ارائه رسمی به شهرداری</span
+              >
+            </div> -->
+          </div>
+          <div class="glass audit">
+            <h3 class="audit-title">
+              <i data-lucide="clipboard-list"></i>فرصت‌های کلیدی برای ارتقای
+              سایت
+            </h3>
+            <div class="score">
+              <div class="chip">
+                <div class="chip-head">
+                  <span class="chip-icon"><i data-lucide="files"></i></span>
+                  <b>سرمایه محتوایی ارزشمند</b>
+                </div>
+                <span
+                  >وجود اخبار، اطلاعیه‌ها، قوانین، راهنماها و خدمات قابل تبدیل
+                  به یک ساختار منظم و قابل جستجو</span
+                >
+              </div>
+              <div class="chip">
+                <div class="chip-head">
+                  <span class="chip-icon"
+                    ><i data-lucide="badge-check"></i
+                  ></span>
+                  <b>ارتقای تصویر رسمی شهرداری</b>
+                </div>
+                <span
+                  >بازطراحی تجربه کاربری برای نمایش حرفه‌ای‌تر، اعتمادسازتر و
+                  مناسب‌تر در موبایل و دسکتاپ</span
+                >
+              </div>
+              <div class="chip">
+                <div class="chip-head">
+                  <span class="chip-icon"><i data-lucide="route"></i></span>
+                  <b>اجرای کم‌ریسک و مرحله‌ای</b>
+                </div>
+                <span
+                  >امکان نوسازی بدون اختلال جدی در مسیرهای رسمی، محتوای موجود و
+                  دسترسی شهروندان</span
+                >
+              </div>
+              <div class="chip">
+                <div class="chip-head">
+                  <span class="chip-icon"
+                    ><i data-lucide="brain-circuit"></i
+                  ></span>
+                  <b>مزیت رقابتی با هوش مصنوعی</b>
+                </div>
+                <span
+                  >افزودن جستجوی هوشمند، راهنمای شهروند، دسته‌بندی درخواست‌ها و
+                  تولید محتوای سریع‌تر برای روابط عمومی</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="strategy" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">چارچوب اجرایی</span>
+              <h2>راهبرد اجرایی پیشنهادی</h2>
+              <p class="sub">
+                یک مسیر مرحله‌ای برای تبدیل سایت فعلی به بستری مدرن، سریع و
+                شهروند‌محور؛ با تمرکز بر خروجی قابل مشاهده، مدیریت ریسک و افزایش
+                اعتبار دیجیتال شهرداری.
+              </p>
+            </div>
+          </div>
+          <div class="grid3 strategy-grid">
+            <div class="card">
+              <div class="icon">
+                <i data-lucide="shield"></i><span class="icon-number">01</span>
+              </div>
+              <h3>بازآفرینی بدون توقف خدمات</h3>
+              <p>
+                نوسازی سایت به‌صورت مرحله‌ای انجام می‌شود تا دسترسی شهروندان به
+                اخبار، اطلاعیه‌ها، فرم‌ها، مزایدات، مناقصات و مسیرهای رسمی دچار
+                اختلال نشود و هم‌زمان کیفیت تجربه کاربری ارتقا پیدا کند.
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon">
+                <i data-lucide="users-round"></i
+                ><span class="icon-number">02</span>
+              </div>
+              <h3>طراحی شهروند‌محور و مدیریتی</h3>
+              <p>
+                ساختار جدید سایت با تمرکز بر نیازهای واقعی شهروندان، دسترسی سریع
+                از موبایل، نمایش حرفه‌ای پروژه‌های شهری، اطلاع‌رسانی منظم و کاهش
+                سردرگمی کاربران طراحی می‌شود.
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon">
+                <i data-lucide="sparkles"></i
+                ><span class="icon-number">03</span>
+              </div>
+              <h3>افزودن مزیت هوشمند</h3>
+              <p>
+                قابلیت‌های هوش مصنوعی به‌عنوان یک مزیت رقابتی و کاربردی اضافه
+                می‌شوند؛ از جستجوی هوشمند و راهنمای شهروند گرفته تا دسته‌بندی
+                درخواست‌ها، پیشنهاد مسیر مناسب و کمک به تولید محتوای روابط
+                عمومی.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="smart-service" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">معماری خدمات دیجیتال</span>
+              <h2>تبدیل منوهای پراکنده به میز خدمت هوشمند</h2>
+              <p class="sub">
+                سایت فعلی دارای محتوای ارزشمند و خدمات متعدد است؛ اما این
+                ظرفیت‌ها می‌توانند از حالت منویی و پراکنده به مسیرهای ساده، قابل
+                جستجو و قابل پیگیری برای شهروندان تبدیل شوند.
+              </p>
+            </div>
+          </div>
+          <div class="grid3 service-hubs">
+            <div class="card">
+              <div class="icon"><i data-lucide="building"></i></div>
+              <h3>میز خدمت شهرسازی و ساخت‌وساز</h3>
+              <p>
+                خدماتی مانند اخذ پروانه، تمدید پروانه، پایان‌کار، اصلاح پروانه،
+                عدم خلاف، دستور تهیه نقشه، استعلام زمین، استعلام آپارتمان،
+                استعلام بانک، طرح تفصیلی و عوارض می‌توانند در یک مسیر واحد و
+                قابل فهم ارائه شوند. شهروند به جای جستجو در چندین منو،
+                مرحله‌به‌مرحله مدارک، شرایط، فرم‌ها، واحد مسئول و مسیر پیگیری را
+                مشاهده می‌کند.
+              </p>
+              <div class="hub-chips">
+                <span class="hub-chip"
+                  ><i data-lucide="file-badge"></i>پروانه و پایان‌کار</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="scan-search"></i>استعلام‌ها</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="map"></i>عوارض و طرح تفصیلی</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="list-checks"></i>راهنمای مدارک و مراحل</span
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="headset"></i></div>
+              <h3>مرکز خدمات شهری و سامانه ۱۳۷</h3>
+              <p>
+                بخش‌هایی مانند سامانه ۱۳۷، پیشنهادات و انتقادات، تماس با شهرداری
+                و رهگیری می‌توانند به یک مرکز یکپارچه برای ثبت، دسته‌بندی، ارجاع
+                و پیگیری درخواست‌های شهروندی تبدیل شوند؛ از مشکلات محله‌ای و
+                نظافت تا روشنایی، فضای سبز، آسفالت، سد معبر و سایر خدمات شهری.
+              </p>
+              <div class="hub-chips">
+                <span class="hub-chip"
+                  ><i data-lucide="clipboard-pen-line"></i>ثبت درخواست</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="badge-info"></i>کد رهگیری</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="send-to-back"></i>ارجاع به واحد مرتبط</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="bar-chart-3"></i>گزارش موضوعات پرتکرار</span
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="library-big"></i></div>
+              <h3>کتابخانه هوشمند قوانین، تعرفه‌ها و عوارض</h3>
+              <p>
+                قوانین شهرداری، تعرفه عوارض، آیین‌نامه ارزش معاملاتی، قوانین
+                نوسازی، نظام مهندسی، کمیسیون ماده ۱۰۰ و سایر اسناد رسمی
+                می‌توانند به شکل یک کتابخانه قابل جستجو ارائه شوند تا شهروندان و
+                حتی کارکنان شهرداری سریع‌تر به متن، فایل یا راهنمای مرتبط برسند.
+              </p>
+              <div class="hub-chips">
+                <span class="hub-chip"
+                  ><i data-lucide="search-check"></i>جستجوی هوشمند قوانین</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="receipt-text"></i>تعرفه‌ها و عوارض</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="files"></i>اسناد رسمی</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="circle-help"></i>پرسش‌های پرتکرار</span
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="building-2"></i></div>
+              <h3>راهنمای هوشمند واحدهای شهرداری</h3>
+              <p>
+                به جای اینکه شهروند مجبور باشد ساختار داخلی شهرداری را بشناسد،
+                سامانه می‌تواند با چند پرسش ساده او را به واحد مناسب هدایت کند؛
+                مانند شهرسازی، درآمد، ممیزی و نوسازی، املاک، اجراییات، اصناف،
+                روابط عمومی، آتش‌نشانی یا سایر واحدهای مرتبط.
+              </p>
+              <div class="hub-chips">
+                <span class="hub-chip"
+                  ><i data-lucide="navigation"></i>هدایت به واحد درست</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="phone-off"></i>کاهش تماس‌های اشتباه</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="waypoints"></i>مسیر ارتباطی شفاف</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="messages-square"></i>پاسخ‌گویی منظم‌تر</span
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="layout-dashboard"></i></div>
+              <h3>داشبورد شفافیت و معرفی شهر</h3>
+              <p>
+                اطلاعاتی مانند آمار شهر، تاریخچه، طرح تفصیلی، نقشه‌های شهری،
+                پروژه‌های عمرانی، معرفی شهردار و معاونین، واحدهای شهرداری و
+                گزارش‌های رسمی می‌توانند به یک ویترین مدرن برای نمایش عملکرد،
+                هویت شهری و اعتمادسازی عمومی تبدیل شوند.
+              </p>
+              <div class="hub-chips">
+                <span class="hub-chip"
+                  ><i data-lucide="hard-hat"></i>پروژه‌های عمرانی</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="chart-column"></i>آمار و اطلاعات شهر</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="map-pinned"></i>نقشه‌ها و طرح تفصیلی</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="file-chart-column"></i>گزارش عملکرد</span
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="messages-square"></i></div>
+              <h3>مرکز ملاقات، ارتباط و پیگیری مردمی</h3>
+              <p>
+                بخش‌هایی مانند تماس با ما، درخواست ملاقات با شهردار، پیشنهادات و
+                انتقادات و رهگیری می‌توانند به یک مسیر منظم برای ارتباط مستقیم
+                شهروند با شهرداری تبدیل شوند. شهروند به جای ارسال پیام‌های
+                پراکنده، درخواست خود را ثبت می‌کند، موضوع آن مشخص می‌شود و مسیر
+                پیگیری شفاف‌تری دریافت می‌کند.
+              </p>
+              <div class="hub-chips">
+                <span class="hub-chip"
+                  ><i data-lucide="calendar-range"></i>درخواست ملاقات</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="messages-square"></i>پیشنهادات و
+                  انتقادات</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="phone-call"></i>تماس با واحد مربوطه</span
+                >
+                <span class="hub-chip"
+                  ><i data-lucide="badge-info"></i>رهگیری پیام‌ها</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">قابلیت‌های هوشمند</span>
+              <h2>قابلیت‌های پیشنهادی هوشمند</h2>
+              <p class="sub">
+                امکاناتی کاربردی برای افزایش سرعت پاسخ‌گویی، دسترسی ساده‌تر
+                شهروندان به خدمات و تقویت تصویر نوآورانه شهرداری.
+              </p>
+            </div>
+          </div>
+          <div class="grid2 ai-grid">
+            <div class="card">
+              <span class="pill"
+                ><i data-lucide="message-circle-question"></i>راهنمای هوشمند
+                شهروند</span
+              >
+              <h3>پاسخ‌گویی سریع به پرسش‌های رایج</h3>
+              <p>
+                شهروند می‌تواند پرسش خود را با زبان ساده مطرح کند؛ مانند «برای
+                دریافت پایان‌کار چه مدارکی لازم است؟»، «چطور درخواست یا شکایت
+                ثبت کنم؟» یا «تعرفه عوارض را از کجا ببینم؟». سامانه، مسیر درست،
+                صفحه مرتبط یا فرم مورد نیاز را به او پیشنهاد می‌دهد.
+              </p>
+            </div>
+            <div class="card">
+              <span class="pill"
+                ><i data-lucide="search-check"></i>جستجوی هوشمند</span
+              >
+              <h3>یافتن سریع خدمات، قوانین و اطلاعیه‌ها</h3>
+              <p>
+                به جای جستجوی ساده و وابسته به کلمه، شهروند می‌تواند با
+                عبارت‌های طبیعی به اطلاعات مورد نیاز خود برسد؛ از اخبار و
+                اطلاعیه‌ها تا قوانین، فرم‌ها، خدمات شهری، عوارض، مزایدات و
+                مناقصات.
+              </p>
+            </div>
+            <div class="card">
+              <span class="pill"
+                ><i data-lucide="file-pen-line"></i>کمک‌یار روابط عمومی</span
+              >
+              <h3>تولید و آماده‌سازی محتوای رسمی</h3>
+              <p>
+                روابط عمومی می‌تواند متن‌های خام، گزارش پروژه‌ها یا اطلاعیه‌ها
+                را سریع‌تر به خبر رسمی، خلاصه مدیریتی، تیتر پیشنهادی و نسخه
+                کوتاه مناسب شبکه‌های اجتماعی تبدیل کند؛ با امکان بازبینی و تأیید
+                نهایی توسط نیروی انسانی.
+              </p>
+            </div>
+            <div class="card">
+              <span class="pill"
+                ><i data-lucide="waypoints"></i>ارجاع هوشمند پیام‌ها</span
+              >
+              <h3>دسته‌بندی درخواست‌ها و شکایات شهروندی</h3>
+              <p>
+                پیام‌ها و درخواست‌های شهروندان بر اساس موضوعاتی مانند خدمات
+                شهری، شهرسازی، فضای سبز، عمران، مالی، حمل‌ونقل و نظافت شهری
+                دسته‌بندی می‌شوند تا ارجاع به واحد مربوطه سریع‌تر، منظم‌تر و
+                قابل پیگیری‌تر انجام شود.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="difference" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">ارزش اجرایی طرح</span>
+              <h2>تفاوت این طرح با یک بازطراحی معمولی</h2>
+              <p class="sub">
+                هدف این پیشنهاد فقط تغییر ظاهر سایت نیست؛ تمرکز اصلی بر تبدیل
+                سایت به ابزار اجرایی برای خدمات شهری، شهرسازی، پاسخ‌گویی،
+                اطلاع‌رسانی و تصمیم‌سازی مدیریتی است.
+              </p>
+            </div>
+          </div>
+          <div class="difference-grid">
+            <div class="card">
+              <div class="icon"><i data-lucide="layout-panel-top"></i></div>
+              <h3>فراتر از طراحی ظاهری</h3>
+              <p>
+                در کنار ظاهر جدید، ساختار خدمات، مسیرهای شهروندی، دسترسی سریع،
+                جستجوی هوشمند و نظم محتوایی سایت نیز بازطراحی می‌شود.
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="users-round"></i></div>
+              <h3>تمرکز بر نیاز واقعی شهروند</h3>
+              <p>
+                صفحه اصلی و منوها بر اساس کارهای پرتکرار مردم طراحی می‌شوند؛
+                مانند شهرسازی، عوارض، شکایات، ۱۳۷، تماس با واحدها و پیگیری
+                درخواست‌ها.
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="bar-chart-3"></i></div>
+              <h3>قابل استفاده برای مدیران</h3>
+              <p>
+                سایت می‌تواند علاوه بر اطلاع‌رسانی، داده‌هایی مانند صفحات
+                پربازدید، موضوعات پرتکرار و مسیرهای پرکاربرد شهروندان را برای
+                تصمیم‌گیری بهتر فراهم کند.
+              </p>
+            </div>
+            <div class="card">
+              <div class="icon"><i data-lucide="waypoints"></i></div>
+              <h3>آماده توسعه در آینده</h3>
+              <p>
+                ساختار پیشنهادی به‌گونه‌ای طراحی می‌شود که در فازهای بعدی امکان
+                اتصال به پیامک، سامانه‌های داخلی، نقشه شهری، داشبورد مدیریتی و
+                خدمات هوشمند بیشتر وجود داشته باشد.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="outcomes" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">خروجی قابل انتظار</span>
+              <h2>نتیجه مورد انتظار برای شهرداری</h2>
+              <p class="sub">
+                اجرای این طرح می‌تواند خروجی ملموسی برای شهروندان، روابط عمومی،
+                واحدهای اجرایی و مدیریت شهری ایجاد کند.
+              </p>
+            </div>
+          </div>
+          <div class="outcome-panel">
+            <ul class="outcome-grid">
+              <li>
+                <i data-lucide="shield-check"></i>افزایش اعتماد عمومی به خدمات
+                دیجیتال شهرداری
+              </li>
+              <li>
+                <i data-lucide="compass"></i>کاهش سردرگمی شهروندان در یافتن
+                خدمات، قوانین و مسیرهای ارتباطی
+              </li>
+              <li>
+                <i data-lucide="inbox"></i>سامان‌دهی درخواست‌ها، پیام‌ها و
+                مراجعات پرتکرار
+              </li>
+              <li>
+                <i data-lucide="presentation"></i>نمایش حرفه‌ای‌تر اخبار،
+                پروژه‌ها، گزارش‌ها و عملکرد شهرداری
+              </li>
+              <li>
+                <i data-lucide="network"></i>ایجاد زیرساختی قابل توسعه برای
+                خدمات هوشمند و مدیریتی آینده
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="levels" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">مقایسه سطح اجرا</span>
+              <h2>سه سطح پیشنهادی همکاری</h2>
+              <p class="sub">
+                انتخاب هر سطح می‌تواند متناسب با بودجه، زمان‌بندی و اولویت‌های
+                شهرداری تنظیم شود؛ هزینه‌های جانبی مانند هاست، دامنه، پیامک،
+                سرویس‌های نقشه، زیرساخت و اتصال به سامانه‌های بیرونی جداگانه
+                محاسبه می‌شوند.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid3 pricing-grid">
+            <div class="card tier">
+              <div class="pricing-top">
+                <span class="pill">
+                  <i data-lucide="layout-template"></i>سطح ۱ — نوسازی پایه
+                </span>
+                <h3>بازطراحی ظاهر و بهبود تجربه شهروند</h3>
+              </div>
+              <div class="pricing-meta">
+                <div class="price">
+                  <i data-lucide="wallet"></i>۱۰۵ میلیون تومان
+                </div>
+                <div class="timeline">
+                  <i data-lucide="calendar-range"></i>زمان اجرا: حدود ۲ ماه
+                </div>
+              </div>
+              <ul class="pricing-highlights">
+                <li>طراحی رسمی و واکنش‌گرا</li>
+                <li>بازطراحی صفحه اصلی</li>
+                <li>مرتب‌سازی مسیرهای مهم</li>
+                <li>بهینه‌سازی پایه سرعت و سئو</li>
+              </ul>
+              <div class="pricing-actions">
+                <button
+                  class="btn details-btn"
+                  type="button"
+                  data-modal-target="level-1-details"
+                >
+                  مشاهده جزئیات
+                </button>
+              </div>
+            </div>
+
+            <div class="card tier popular">
+              <div class="pricing-top">
+                <span class="pill">
+                  <i data-lucide="building-2"></i>سطح ۲ — گزینه پیشنهادی
+                </span>
+                <h3>درگاه هوشمند اطلاع‌رسانی و خدمات شهروندی</h3>
+              </div>
+              <div class="pricing-meta">
+                <div class="price">
+                  <i data-lucide="wallet"></i>۲۱۰ میلیون تومان
+                </div>
+                <div class="timeline">
+                  <i data-lucide="calendar-range"></i>زمان اجرا: حدود ۴ ماه
+                </div>
+              </div>
+              <ul class="pricing-highlights">
+                <li>بازطراحی خدمات و شکایات</li>
+                <li>جستجوی هوشمند محتوا</li>
+                <li>راهنمای هوشمند شهروند</li>
+                <li>داشبورد سبک و آمار بازدید</li>
+              </ul>
+              <div class="pricing-actions">
+                <button
+                  class="btn details-btn"
+                  type="button"
+                  data-modal-target="level-2-details"
+                >
+                  مشاهده جزئیات
+                </button>
+              </div>
+            </div>
+
+            <div class="card tier">
+              <div class="pricing-top">
+                <span class="pill">
+                  <i data-lucide="network"></i>سطح ۳ — تحول دیجیتال
+                </span>
+                <h3>سامانه جامع ارتباط و پیگیری شهروندی</h3>
+              </div>
+              <div class="pricing-meta">
+                <div class="price">
+                  <i data-lucide="wallet"></i>۳۲۰ میلیون تومان
+                </div>
+                <div class="timeline">
+                  <i data-lucide="calendar-range"></i>زمان اجرا: حدود ۶ ماه
+                </div>
+              </div>
+              <ul class="pricing-highlights">
+                <li>ثبت و رهگیری درخواست‌ها</li>
+                <li>ارجاع هوشمند پیام‌ها</li>
+                <li>نقشه خدمات و پروژه‌ها</li>
+                <li>گزارش‌های مدیریتی و توسعه‌پذیر</li>
+              </ul>
+              <div class="pricing-actions">
+                <button
+                  class="btn details-btn"
+                  type="button"
+                  data-modal-target="level-3-details"
+                >
+                  مشاهده جزئیات
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="level-1-details" class="pricing-detail-template">
+            <span class="pill">سطح ۱ — نوسازی پایه</span>
+            <h3>بازطراحی ظاهر و بهبود تجربه شهروند</h3>
+            <div class="modal-meta">
+              <div class="modal-price">۱۰۵ میلیون تومان</div>
+              <div class="timeline">زمان اجرا: حدود ۲ ماه</div>
+            </div>
+            <ul class="list">
+              <li>طراحی چهره جدید، رسمی و واکنش‌گرا برای سایت</li>
+              <li>
+                بازطراحی صفحه اصلی با تمرکز بر اخبار، خدمات و دسترسی‌های مهم
+              </li>
+              <li>مرتب‌سازی منوها و مسیرهای پرتکرار شهروندان</li>
+              <li>
+                بهبود نمایش اخبار، اطلاعیه‌ها، قوانین، راهنما و اطلاعات تماس
+              </li>
+              <li>بهینه‌سازی پایه سرعت، خوانایی، ساختار صفحات و سئوی اولیه</li>
+              <li>
+                حفظ مسیرهای مهم فعلی برای جلوگیری از خطاهای دسترسی و افت اعتبار
+                سایت
+              </li>
+            </ul>
+            <p class="modal-note">
+              مناسب برای ایجاد یک چهره جدید، رسمی و قابل ارائه از سایت شهرداری
+              در یک مسیر اجرایی کنترل‌شده و کم‌ریسک.
+            </p>
+          </div>
+
+          <div id="level-2-details" class="pricing-detail-template">
+            <span class="pill">سطح ۲ — گزینه پیشنهادی</span>
+            <h3>درگاه هوشمند اطلاع‌رسانی و خدمات شهروندی</h3>
+            <div class="modal-meta">
+              <div class="modal-price">۲۱۰ میلیون تومان</div>
+              <div class="timeline">زمان اجرا: حدود ۴ ماه</div>
+            </div>
+            <ul class="list">
+              <li>تمام موارد سطح ۱</li>
+              <li>
+                بازطراحی صفحات خدماتی، شکایات، ۱۳۷، راهنماها، مزایدات و مناقصات
+              </li>
+              <li>
+                ایجاد ساختار منظم‌تر برای دسترسی سریع به خدمات و اطلاعات مهم
+              </li>
+              <li>
+                جستجوی هوشمند در اخبار، خدمات، قوانین، فرم‌ها و اطلاعیه‌ها
+              </li>
+              <li>
+                راهنمای هوشمند شهروند برای هدایت کاربران به صفحه یا فرم مناسب
+              </li>
+              <li>
+                داشبورد سبک برای مدیریت بخش‌های مهم صفحه اصلی و محتوای پرتکرار
+              </li>
+              <li>گزارش بازدید، صفحات پربازدید و مسیرهای پرکاربرد شهروندان</li>
+            </ul>
+            <p class="modal-note">
+              بهترین نقطه تعادل میان هزینه، زمان، جذابیت ارائه و ارزش واقعی برای
+              شهروندان و مدیران شهرداری.
+            </p>
+          </div>
+
+          <div id="level-3-details" class="pricing-detail-template">
+            <span class="pill">سطح ۳ — تحول دیجیتال</span>
+            <h3>سامانه جامع ارتباط و پیگیری شهروندی</h3>
+            <div class="modal-meta">
+              <div class="modal-price">۳۲۰ میلیون تومان</div>
+              <div class="timeline">زمان اجرا: حدود ۶ ماه</div>
+            </div>
+            <ul class="list">
+              <li>تمام موارد سطح ۲</li>
+              <li>
+                راه‌اندازی سامانه ثبت، دسته‌بندی و رهگیری درخواست‌های شهروندی
+              </li>
+              <li>ارجاع هوشمند پیام‌ها و شکایات به واحدهای مرتبط شهرداری</li>
+              <li>ایجاد نقشه خدمات، پروژه‌های عمرانی و نقاط مهم شهری</li>
+              <li>امکان ایجاد پروفایل شهروندی و مشاهده تاریخچه درخواست‌ها</li>
+              <li>
+                گزارش‌های مدیریتی برای شهردار، روابط عمومی و واحدهای اجرایی
+              </li>
+              <li>
+                امکان توسعه مرحله‌ای برای اتصال به سرویس‌های بیرونی و سامانه‌های
+                آینده
+              </li>
+            </ul>
+            <p class="modal-note">
+              مناسب برای تبدیل سایت از یک پایگاه اطلاع‌رسانی به ابزار واقعی
+              مدیریت ارتباط با شهروندان و پیگیری درخواست‌ها.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="deliverables" class="section">
+        <div class="section-shell compact">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">ارزش تحویل</span>
+              <h2>خروجی‌های قابل تحویل</h2>
+            </div>
+          </div>
+          <div class="grid3 deliverables">
+            <div class="card">
+              <div class="deliverable-icon"><i data-lucide="pen-tool"></i></div>
+              <h3>طراحی اختصاصی و رسمی</h3>
+              <p>
+                طراحی رابط کاربری و تجربه کاربری متناسب با هویت شهرداری؛ فارسی،
+                منظم، واکنش‌گرا، قابل اعتماد و مناسب نمایش در موبایل، تبلت و
+                دسکتاپ.
+              </p>
+            </div>
+            <div class="card">
+              <div class="deliverable-icon"><i data-lucide="folders"></i></div>
+              <h3>ساختار منظم محتوا و خدمات</h3>
+              <p>
+                سامان‌دهی بخش‌های مهم سایت مانند اخبار، اطلاعیه‌ها، خدمات
+                شهروندی، راهنماها، شکایات، مزایدات، مناقصات و مسیرهای ارتباطی
+                برای دسترسی سریع‌تر شهروندان.
+              </p>
+            </div>
+            <div class="card">
+              <div class="deliverable-icon">
+                <i data-lucide="life-buoy"></i>
+              </div>
+              <h3>آموزش، مستندات و پشتیبانی</h3>
+              <p>
+                ارائه راهنمای مدیریت محتوا، آموزش نیروهای مرتبط، چک‌لیست نگهداری
+                و پشتیبانی اولیه پس از تحویل؛ با امکان تعریف قرارداد پشتیبانی
+                ماهانه در صورت نیاز.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-shell">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">مسیر اجرا</span>
+              <h2>نقشه راه اجرا</h2>
+              <p class="sub">
+                اجرای پروژه به‌صورت مرحله‌ای پیش می‌رود تا شهرداری در هر گام،
+                خروجی قابل مشاهده، قابل بررسی و قابل تأیید داشته باشد؛ از شناخت
+                اولیه تا طراحی، پیاده‌سازی، آموزش و پشتیبانی.
+              </p>
+            </div>
+          </div>
+          <div class="road">
+            <div class="step">
+              <div class="step-icon"><i data-lucide="map"></i></div>
+              <h3>شناخت، بررسی و برنامه‌ریزی</h3>
+              <p class="mini">
+                بررسی ساختار فعلی سایت، محتوای موجود، مسیرهای پرکاربرد شهروندان،
+                نیازهای روابط عمومی و اولویت‌های مدیریتی برای تدوین برنامه
+                اجرایی دقیق.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-icon"><i data-lucide="pencil-ruler"></i></div>
+              <h3>طراحی نمونه اولیه</h3>
+              <p class="mini">
+                طراحی صفحه اصلی، ساختار خدمات، منوی اصلی و چند صفحه کلیدی برای
+                نمایش مسیر پیشنهادی پروژه و دریافت تأیید اولیه پیش از ورود به
+                اجرای کامل.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-icon"><i data-lucide="blocks"></i></div>
+              <h3>پیاده‌سازی و سامان‌دهی محتوا</h3>
+              <p class="mini">
+                اجرای طراحی نهایی، بهینه‌سازی تجربه کاربری، مرتب‌سازی بخش‌های
+                مهم، حفظ دسترسی‌های ضروری و آماده‌سازی سایت برای استفاده عمومی
+                در موبایل و دسکتاپ.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-icon"><i data-lucide="graduation-cap"></i></div>
+              <h3>تحویل، آموزش و پشتیبانی</h3>
+              <p class="mini">
+                تست نهایی، آموزش نیروهای مرتبط، ارائه راهنمای مدیریت محتوا و
+                آغاز دوره پشتیبانی اولیه برای اطمینان از عملکرد صحیح سایت پس از
+                تحویل.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="final-proposal" class="section proposal-cta">
+        <div class="cta">
+          <div>
+            <span class="section-kicker">جمع‌بندی</span>
+            <h2 style="margin: 0 0 6px">پیشنهاد نهایی</h2>
+            <p class="sub" style="margin: 0">
+              برای ارائه به شهرداری، سطح ۲ بهترین گزینه است: هم ظاهر سایت را
+              حرفه‌ای می‌کند، هم چند قابلیت هوش مصنوعی جذاب دارد، هم ریسک و
+              هزینه سطح تحول کامل را ندارد.
+            </p>
+          </div>
+          <a class="btn" href="#levels">انتخاب پیشنهادی: سطح ۲</a>
+        </div>
+      </section>
+    </main>
+    <div class="modal-overlay" id="pricing-modal" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pricing-modal-title"
+      >
+        <div class="modal-head">
+          <div id="pricing-modal-title"></div>
+          <button class="modal-close" type="button" aria-label="بستن">×</button>
+        </div>
+        <div class="modal-body" id="pricing-modal-body"></div>
+      </div>
+    </div>
+    <footer class="wrap footer">
+      تهیه‌شده برای ارائه پیشنهاد بازسازی پورتال شهرداری مشکین‌دشت — نسخه
+      پیشنهادی اولیه. ارقام، زمان‌بندی و دامنه اجرا پس از جلسه نیازسنجی قابل
+      اصلاح است.
+    </footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      (function () {
+        const themeStorageKey = "meshkindasht-proposal-theme";
+        const body = document.body;
+        const modal = document.getElementById("pricing-modal");
+        const modalTitle = document.getElementById("pricing-modal-title");
+        const modalBody = document.getElementById("pricing-modal-body");
+        const closeButton = modal.querySelector(".modal-close");
+        const detailButtons = document.querySelectorAll("[data-modal-target]");
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeToggleText = document.getElementById("theme-toggle-text");
+        const navMenuToggle = document.getElementById("nav-menu-toggle");
+        const navMenuClose = document.getElementById("nav-menu-close");
+        const navMobilePanel = document.getElementById("nav-mobile-panel");
+        const navMobileLinks = document.querySelectorAll(".nav-mobile-links a");
+        const navMenuCloseTriggers = document.querySelectorAll(
+          ".menu-close-on-click",
+        );
+
+        function refreshIcons() {
+          if (
+            window.lucide &&
+            typeof window.lucide.createIcons === "function"
+          ) {
+            window.lucide.createIcons();
+          }
+        }
+
+        function syncBodyScrollLock() {
+          const menuOpen = navMobilePanel?.classList.contains("is-open");
+          const modalOpen = modal?.classList.contains("is-open");
+          document.body.style.overflow = menuOpen || modalOpen ? "hidden" : "";
+        }
+
+        function setMobileMenuState(isOpen) {
+          if (!navMenuToggle || !navMobilePanel) return;
+          navMobilePanel.classList.toggle("is-open", isOpen);
+          navMobilePanel.setAttribute("aria-hidden", String(!isOpen));
+          navMenuToggle.setAttribute("aria-expanded", String(isOpen));
+          navMenuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "بستن منو" : "باز کردن منو",
+          );
+          const icon = navMenuToggle.querySelector("[data-lucide]");
+          if (icon) {
+            icon.setAttribute("data-lucide", isOpen ? "x" : "menu");
+          }
+          syncBodyScrollLock();
+          refreshIcons();
+        }
+
+        function applyTheme(theme) {
+          const normalizedTheme = theme === "dark" ? "dark" : "light";
+          body.setAttribute("data-theme", normalizedTheme);
+          localStorage.setItem(themeStorageKey, normalizedTheme);
+
+          if (themeToggleText) {
+            themeToggleText.textContent =
+              normalizedTheme === "dark" ? "حالت روشن" : "حالت تیره";
+          }
+
+          if (themeToggle) {
+            const icon = themeToggle.querySelector("[data-lucide]");
+            if (icon) {
+              icon.setAttribute(
+                "data-lucide",
+                normalizedTheme === "dark" ? "sun-medium" : "moon",
+              );
+            }
+          }
+
+          refreshIcons();
+        }
+
+        function closeModal() {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          modalTitle.innerHTML = "";
+          modalBody.innerHTML = "";
+          syncBodyScrollLock();
+        }
+
+        function openModal(targetId) {
+          const template = document.getElementById(targetId);
+          if (!template) return;
+
+          const titleContent = template.querySelector(".pill");
+          modalTitle.innerHTML = titleContent ? titleContent.outerHTML : "";
+          modalBody.innerHTML = template.innerHTML;
+          modalBody.querySelector(".pill")?.remove();
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          syncBodyScrollLock();
+        }
+
+        detailButtons.forEach((button) => {
+          button.addEventListener("click", () =>
+            openModal(button.dataset.modalTarget),
+          );
+        });
+
+        closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("is-open")) {
+            closeModal();
+          }
+          if (
+            event.key === "Escape" &&
+            navMobilePanel?.classList.contains("is-open")
+          ) {
+            setMobileMenuState(false);
+          }
+        });
+
+        if (themeToggle) {
+          themeToggle.addEventListener("click", () => {
+            const nextTheme =
+              body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            applyTheme(nextTheme);
+          });
+        }
+
+        if (navMenuToggle) {
+          navMenuToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const isOpen = navMobilePanel?.classList.contains("is-open");
+            setMobileMenuState(!isOpen);
+          });
+        }
+
+        if (navMenuClose) {
+          navMenuClose.addEventListener("click", (event) => {
+            event.stopPropagation();
+            setMobileMenuState(false);
+          });
+        }
+
+        navMobileLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            setMobileMenuState(false);
+          });
+        });
+
+        navMenuCloseTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => {
+            setMobileMenuState(false);
+          });
+        });
+
+        if (navMobilePanel) {
+          navMobilePanel.addEventListener("click", (event) => {
+            event.stopPropagation();
+          });
+        }
+
+        document.addEventListener("click", (event) => {
+          if (!navMenuToggle || !navMobilePanel) return;
+          if (!navMobilePanel.classList.contains("is-open")) return;
+
+          const eventPath =
+            typeof event.composedPath === "function"
+              ? event.composedPath()
+              : [];
+          const clickedInsideMenu = eventPath.includes(navMobilePanel);
+          const clickedToggle = eventPath.includes(navMenuToggle);
+
+          if (!clickedInsideMenu && !clickedToggle) {
+            setMobileMenuState(false);
+          }
+        });
+
+        const savedTheme = localStorage.getItem(themeStorageKey) || "light";
+        applyTheme(savedTheme);
+        setMobileMenuState(false);
+        syncBodyScrollLock();
+      })();
+    </script>
+  </body>
+</html>
